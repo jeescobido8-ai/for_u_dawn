@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Online Letter</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: #fefcf5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Allura', cursive;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.envelope {
+    width: 300px;
+    height: 190px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.rose {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
+    border: 2px solid #c62828;
+    transition: all 0.6s ease;
+}
+
+.letter {
+    position: fixed;
+    left: 50%;
+    bottom: -120%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 520px;
+    height: 85vh;
+    background: #fffdf5;
+    border-radius: 12px;
+    padding: 28px 26px;
+    border: 1px solid #e2d9c7;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    overflow-y: auto;
+    transition: bottom 0.8s ease;
+    z-index: 10;
+
+    font-size: 28px;
+    line-height: 2.1;
+    letter-spacing: 0.8px;
+    color: #2c1f18;
+    text-align: left;
+}
+
+/* CENTERED TITLE */
+.letter h2 {
+    text-align: center;
+    color: #c62828;
+    font-size: 38px;
+    margin: 0 auto 24px auto;
+    display: block;
+}
+
+/* CENTERED CLOSE NOTE */
+.close-note {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+    opacity: 0.8;
+    font-size: 18px;
+}
+
+.open .letter { bottom: 5%; }
+.open .rose {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+.hint {
+    margin-top: 12px;
+    color: #2e7d32;
+    font-size: 14px;
+}
+
+/* Flower link styling */
+.flower-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #c62828;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+.flower-link:hover {
+    color: #e57373;
+}
+
+/* Background animations */
+.rose-fall {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: red;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    0% { top: -50px; opacity: 1; transform: rotate(0deg); }
+    100% { top: 100vh; opacity: 0; transform: rotate(360deg); }
+}
+
+.firework {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: gold;
+    pointer-events: none;
+    z-index: 0;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(5); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+@media (max-width: 480px) { 
+    .envelope { width: 260px; height: 170px; } 
+    .letter { height: 88vh; font-size: 24px; line-height: 2; } 
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="envelope" id="envelope">
+        <div class="rose">🌹</div>
+    </div>
+    <div class="letter" id="letter">
+        <h2>HAPPY BIRTHDAY!</h2>
+        <p>
+            Dear Dawn,
+            <br><br>
+            I hope na for today ay mapuno ka ng smiles and ng love from the people around you. I hope na this year, all your plans, your wishes, everything you're asking for in life will be granted, even the smallest and simplest to the grandest wish you have.
+            <br><br>
+            I do really appreciate you. Sa mga advices na binibigay mo. Sa mga lessons and knowledge na shine-share mo. For being such a great friend. For being such a great person.
+            <br><br>
+            You are one of the best person that I have ever met. You're so amazing, unparalled beauty, and yet is napaka kind and humble. You are so talented. In simple term, nasa iyo na ang lahat! You are really one of a kind, an exception, in a great great way.
+            <br><br>
+            Having you in my life is something na I greatly appreciate and something that I could be proud of. Thank you for being such a great friend!
+            <br><br>
+            Kaya naman, I do wish you all the best, always! You may think na you already have so much, pero you deserve every blessing and happiness that comes your way pa.
+            <br>I hope today is as special as you are 🌹
+            <br><br>
+            Happy Birthday again Dawn!
+            <br><br>
+            Yours truly,
+            <br>Jeremy
+            <br><br>
+
+            <span class="close-note">~Click the letter to close~</span>
+        </p>
+    </div>
+
+    <div class="hint">Tap the envelope to open the letter</div>
+<br><br>
+ <!-- Flower gift link placed outside the letter -->
+    <a href="https://jeescobido8-ai.github.io/flower/" class="flower-link">Tap this for Virtual Flowers for you Dawn</a>
+
+</div>
+
+<script>
+const envelope = document.getElementById("envelope");
+const letter = document.getElementById("letter");
+const body = document.body;
+
+startAnimations();
+
+function startAnimations() {
+    setInterval(() => {
+        const rose = document.createElement("div");
+        rose.classList.add("rose-fall");
+        rose.style.left = Math.random() * window.innerWidth + "px";
+        rose.style.animationDuration = (3 + Math.random() * 2) + "s";
+        document.body.appendChild(rose);
+        rose.addEventListener("animationend", () => rose.remove());
+    }, 200);
+
+    setInterval(() => {
+        const firework = document.createElement("div");
+        firework.classList.add("firework");
+        firework.style.left = Math.random() * window.innerWidth + "px";
+        firework.style.top = Math.random() * window.innerHeight / 2 + "px";
+        document.body.appendChild(firework);
+        firework.addEventListener("animationend", () => firework.remove());
+    }, 300);
+}
+
+envelope.addEventListener("click", () => {
+    body.classList.toggle("open");
+});
+
+letter.addEventListener("click", () => {
+    body.classList.remove("open");
+});
+</script>
+
+</body>
+</html>
